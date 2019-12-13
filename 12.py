@@ -38,6 +38,7 @@ for i in range(len(moons)):
 print(totalenergy)
 
 # part 2
+
 t = 0
 z = 0
 moonval = ''
@@ -46,11 +47,17 @@ matchcounter = {}
 found = False
 while True:
     while z < 3:
+        if z == 0:
+            xyz = 'x'
+        elif z == 1:
+            xyz = 'y'
+        elif z == 2:
+            xyz = 'z'
         moons = moons2[:]
         velocities = velocities2[:]  # take fresh copies of original positions
         while True:
             if z not in matches:
-                matches[str(z)] = ''
+                matches[z] = []
 
             for moon in range(len(moons)):  # loop through moons
                 for other in range(len(moons)):  # loop through other moons to compare
@@ -66,7 +73,7 @@ while True:
 
             for l in range(len(moons)):
                 print(moons)
-                moonval += str(moons[l][z])
+                moonval += str(moons[l][xyz])
             if moonval not in matches[z]:
                 matches[z].append(moonval)
             else:
