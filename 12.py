@@ -72,13 +72,14 @@ while True:
             moonval = ''
 
             for l in range(len(moons)):
-                print(moons)
                 moonval += str(moons[l][xyz])
             if moonval not in matches[z]:
                 matches[z].append(moonval)
+                print(len(matches[z]) )
             else:
                 matchcounter[z] = t
                 z += 1
+                t = 0
             t += 1  #may need to move this to the top of the loop
     break
 
